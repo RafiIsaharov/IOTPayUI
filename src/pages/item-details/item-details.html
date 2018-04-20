@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ItemDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Device details</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="delete()">
+        <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+      </button>      
+        <button ion-button (click)="done()">
+          <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div text-center><button ion-button color="primary" round (click)="save()">Save</button></div>
+
+</ion-content>
