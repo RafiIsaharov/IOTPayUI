@@ -1,3 +1,4 @@
+import { DeviceService } from '../../services/device-service';
 import {Component} from "@angular/core";
 import {NavController, PopoverController, NavParams,ModalController} from "ionic-angular";
 import {Storage} from '@ionic/storage';
@@ -22,18 +23,11 @@ export class HomePage {
     date: new Date().toISOString()
   }
 
-  items = [{
-              name: 'Coffe Machine',
-              desc:'provide beans',
-            img:'../assets/img/iot/coffee-machine.png'},
-            {
-              name: 'Dush button',
-              desc:'press to order somthing',
-            img:'../../assets/img/iot/iotbutton.png'},];
-
+  items: any;
   userName: String = this.params.get('userName');
 
-  constructor(private storage: Storage, public nav: NavController, public params: NavParams, public popoverCtrl: PopoverController, private modelCtrl :ModalController) {
+  constructor(private storage: Storage, public nav: NavController, public params: NavParams, public popoverCtrl: PopoverController, private modelCtrl :ModalController, public deviceService: DeviceService) {
+    this.items = deviceService.getAll();
   }
 
 

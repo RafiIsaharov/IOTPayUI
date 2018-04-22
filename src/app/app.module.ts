@@ -25,6 +25,7 @@ import {TripDetailPage} from "../pages/trip-detail/trip-detail";
 import {TripsPage} from "../pages/trips/trips";
 import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { DeviceService } from '../services/device-service';
 // import services
 // end import services
 // end import services
@@ -81,6 +82,7 @@ import { ItemDetailsPage } from '../pages/item-details/item-details';
     Keyboard,
     ActivityService,
     TripService,
+    DeviceService,
     WeatherProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

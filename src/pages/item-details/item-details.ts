@@ -1,3 +1,4 @@
+import { DeviceService } from '../../services/device-service';
 import { ViewController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
@@ -17,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ItemDetailsPage {
   item;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public deviceSrv : DeviceService) {
     this.item = navParams.get('item');
   }
 
@@ -38,6 +39,7 @@ export class ItemDetailsPage {
   }
 
   delete(){
+    this.deviceSrv.remove(this.item);
     this.viewCtrl.dismiss();
     
   }

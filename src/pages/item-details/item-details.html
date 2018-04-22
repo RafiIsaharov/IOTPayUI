@@ -29,6 +29,10 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label fixed>Description</ion-label>
       <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
     </ion-item>
