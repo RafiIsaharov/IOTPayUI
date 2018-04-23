@@ -88,6 +88,7 @@ import { DevicePage } from '../pages/device/device';
     DeviceService,
     WeatherProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
+    
   ]
 })
 
