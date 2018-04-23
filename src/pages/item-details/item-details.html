@@ -28,6 +28,10 @@
 
 <ion-content padding>
   <ion-list>
+      <ion-item>
+          <ion-label fixed>Device ID</ion-label>
+          <ion-input type="text" disabled="true" [(ngModel)]="item.id"></ion-input>
+        </ion-item>
     <ion-item>
       <ion-label fixed>Name</ion-label>
       <ion-input type="text" [(ngModel)]="item.name"></ion-input>
