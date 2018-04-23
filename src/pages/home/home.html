@@ -18,7 +18,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="animated fadeIn common-bg">
+<ion-content padding class="animated fadeIn">
 
  <h1> {{this.userName}}'s Devices </h1>
 
@@ -39,7 +39,7 @@
   </button>
 <ion-list>
   <ion-list-header>
-    Add new device
+    <button ion-button (click)="routeToDevicePage()">Add device</button>
   </ion-list-header>
   <button ion-item *ngFor="let item of items" (click)="selectItem(item)" >
       <ion-grid>

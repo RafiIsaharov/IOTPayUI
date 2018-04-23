@@ -26,6 +26,7 @@ import {TripsPage} from "../pages/trips/trips";
 import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { DeviceService } from '../services/device-service';
+import { DevicePage } from '../pages/device/device';
 // import services
 // end import services
 // end import services
@@ -46,7 +47,8 @@ import { DeviceService } from '../services/device-service';
     SearchLocationPage,
     TripDetailPage,
     TripsPage,
-    ItemDetailsPage
+    ItemDetailsPage,
+    DevicePage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { DeviceService } from '../services/device-service';
     SearchLocationPage,
     TripDetailPage,
     TripsPage,
-    ItemDetailsPage
+    ItemDetailsPage,
+    DevicePage
   ],
   providers: [
     StatusBar,

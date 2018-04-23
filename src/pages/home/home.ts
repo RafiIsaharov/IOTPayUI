@@ -9,6 +9,7 @@ import {TripsPage} from "../trips/trips";
 import {SearchLocationPage} from "../search-location/search-location";
 import { LoginPage } from "../login/login";
 import { ItemDetailsPage } from "../item-details/item-details";
+import { DevicePage } from '../device/device';
 
 
 @Component({
@@ -69,6 +70,10 @@ export class HomePage {
     popover.present({
       ev: myEvent
     });
+  }
+
+  routeToDevicePage() {
+    this.nav.push(DevicePage);
   }
 
   selectItem(item){

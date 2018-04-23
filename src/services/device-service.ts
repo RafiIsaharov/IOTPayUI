@@ -1,9 +1,11 @@
 import { ITEMS } from './mock-devices';
 import {Injectable} from "@angular/core";
+import { DevicePage } from '../pages/device/device';
 
 @Injectable()
 export class DeviceService {
   private items: any;
+  
 
   constructor() {
     this.items = ITEMS;
@@ -20,6 +22,12 @@ export class DeviceService {
       }
     }
     return null;
+  }
+
+  addDevice(item : any) {
+   //alert("Adding Device");
+   this.items.push(item); 
+   console.log(this.items);
   }
 
   remove(item) {
