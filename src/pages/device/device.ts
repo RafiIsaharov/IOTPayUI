@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DeviceService } from '../../services/device-service';
 
@@ -26,7 +26,7 @@ export class DevicePage {
   deviceDescription: string;
   deviceFormGroup: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private deviceService: DeviceService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private deviceService: DeviceService, public alertController : AlertController) {
   }
 
   ngOnInit() {
@@ -62,5 +62,37 @@ export class DevicePage {
     this.deviceService.addDevice(this.getDeviceDetails());
     this.navCtrl.pop();
   }
+
+  fetchDevice() {
+    console.log('device id is', this.deviceId);
+    let item : any = this.deviceService.getItem(this.deviceId);
+    console.log(item);
+
+    if (item != null) {
+      this.deviceService.addDevice(item);
+      this.navCtrl.pop();
+    } else {
+      this.deviceDoNotExistAlert();
+      //alert("Device ID doesn't exist")
+    }
+
+  }
+
+deviceDoNotExistAlert() {
+  let deviceDoNotExist = this.alertController.create({
+    title: `<div> Device with ID ${this.deviceId} does not exist</div>`,  
+  
+    buttons: [
+      {
+        text: 'Ok',
+        handler: data => {
+          console.log('OK clicked');
+        }
+      },
+     
+    ]
+  });
+  deviceDoNotExist.present();
+}
 
 }

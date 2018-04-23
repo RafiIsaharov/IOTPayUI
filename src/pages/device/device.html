@@ -17,6 +17,14 @@
 
     <!-- Login form -->
     <form novalidate class="list-form" [formGroup]="deviceFormGroup">
+        <ion-item>
+            <ion-label floating>
+              <ion-icon name="person" item-start class="text-primary"></ion-icon>
+              Device ID
+            </ion-label>
+            <ion-input [(ngModel)]="deviceId" formControlName="deviceId" type="String"></ion-input>
+          </ion-item>
+     <!-- 
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
@@ -30,10 +38,11 @@
           Device Description
         </ion-label>
         <ion-input [(ngModel)]="deviceDescription" formControlName="deviceDescription" type="String"></ion-input>
-      </ion-item>
+      </ion-item> -->
     
       <div>
-        <button ion-button icon-start block color="dark" tappable (click)="addDevice()">
+        <!-- <button ion-button icon-start block color="dark" tappable (click)="addDevice()"> -->
+        <button ion-button icon-start block color="dark" tappable (click)="fetchDevice()">
           <ion-icon name="log-in"></ion-icon>
           Add
         </button>
@@ -45,3 +54,17 @@
 
 
 </ion-content>
+
+
+<style type="text/css">
+  .popup-head {
+    
+    color: rgb(223, 62, 62);
+    font-size: 11px;
+  }
+
+  .popup-body {
+    color: rgb(75, 75, 75);
+    border-bottom: 1px solid #ff0000;
+  }
+</style>
