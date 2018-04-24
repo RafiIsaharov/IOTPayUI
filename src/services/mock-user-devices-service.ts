@@ -25,7 +25,7 @@ export class UserDevicesService {
   }
 
   addDeviceToUser(userName, deviceId) {
-   alert("Adding Device");
+   console.log("Adding Device");
    for (var i = 0; i < this.userDevices.length; i++) {
     if (this.userDevices[i].userName === userName) {
        this.userDevices[i].deviceId.push(parseInt(deviceId));
@@ -34,4 +34,17 @@ export class UserDevicesService {
       }
      }
   } 
+
+  removeDeviceFromUser(userName, deviceId) {
+    console.log ('Removing device, device ID: ${deviceId}')
+    for (var i = 0; i < this.userDevices.length; i++) {
+     if (this.userDevices[i].userName === userName) {
+        let index = this.userDevices[i].deviceId.indexOf(parseInt(deviceId));
+        console.log (`index is` + index);
+         this.userDevices[i].deviceId.splice(index,1);
+         
+       console.log(this.userDevices);
+    }
+    }
+  }
 }

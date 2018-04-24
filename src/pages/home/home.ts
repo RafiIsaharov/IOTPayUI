@@ -96,8 +96,9 @@ export class HomePage {
   }
 
   selectItem(item){
-    //this.nav.push(ItemDetailsPage,{item:item});
-    this.modelCtrl.create(ItemDetailsPage,{item:item}).present();
+    this.nav.push(ItemDetailsPage,{item:item, user: this.userName});
+  // this.modelCtrl.create(ItemDetailsPage,{item:item}).present();
+
   }
 
 }

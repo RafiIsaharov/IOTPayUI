@@ -3,6 +3,8 @@ import { ViewController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserDevicesService } from '../../services/mock-user-devices-service';
+import { UserService } from '../../services/user-service';
 
 /**
  * Generated class for the ItemDetailsPage page.
@@ -18,8 +20,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ItemDetailsPage {
   item;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public deviceSrv : DeviceService) {
+  user;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, 
+    public deviceSrv : DeviceService,
+    public userDeviceService: UserDevicesService,
+    public userService : UserService) {
     this.item = navParams.get('item');
+    this.user = navParams.get('user');
+
   }
 
   ionViewDidLoad() {
@@ -39,7 +47,9 @@ export class ItemDetailsPage {
   }
 
   delete(){
-    this.deviceSrv.remove(this.item);
+   // this.deviceSrv.remove(this.item);  
+    console.log ("delete was pressed");
+    this.userDeviceService.removeDeviceFromUser(this.user, this.item.id);
     this.viewCtrl.dismiss();
     
   }
