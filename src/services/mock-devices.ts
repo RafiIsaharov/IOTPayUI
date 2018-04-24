@@ -14,5 +14,10 @@ export let ITEMS = [
     id: 789,
     name: 'Simething button',
     desc:'order bedsadsadasdsaar',
-    img:'../assets/img/iot/alarm-clock.png'}
+    img:'../assets/img/iot/alarm-clock.png'},
+    {
+      id: 100,
+      name: 'Default button',
+      desc:'order bedsadsadasdsaar',
+      img:'../assets/img/iot/alarm-clock.png'}
 ]

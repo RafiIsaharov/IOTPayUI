@@ -10,6 +10,8 @@ import {SearchLocationPage} from "../search-location/search-location";
 import { LoginPage } from "../login/login";
 import { ItemDetailsPage } from "../item-details/item-details";
 import { DevicePage } from '../device/device';
+import { UserDevicesService } from '../../services/mock-user-devices-service';
+import { UserService } from '../../services/user-service';
 
 
 @Component({
@@ -25,10 +27,21 @@ export class HomePage {
   }
 
   items: any;
+ // userItems: any;
   userName: String = this.params.get('userName');
+  
 
-  constructor(private storage: Storage, public nav: NavController, public params: NavParams, public popoverCtrl: PopoverController, private modelCtrl :ModalController, public deviceService: DeviceService) {
-    this.items = deviceService.getAll();
+  constructor(private storage: Storage, public nav: NavController, public params: NavParams,
+     public popoverCtrl: PopoverController, private modelCtrl :ModalController,
+      public deviceService: DeviceService,
+      public userDeviceService: UserDevicesService,
+      public userService : UserService) {
+      let userDevices = userDeviceService.getUserDevices(this.userName);
+      //this.items = deviceService.getAll();
+      this.items = deviceService.getAll(userDevices);
+      //this.userItems = deviceService.getAll(userDevices);
+
+
   }
 
 
@@ -45,14 +58,15 @@ export class HomePage {
     }).catch((err) => {
       console.log(err)
     });
-
+    //**********new Addition here to load al ites on page refresh*********
+    this.items = this.deviceService.getAll(this.userDeviceService.getUserDevices(this.userName));
     console.log(this.userName);
     }
 
   // go to result page
   doSearch() {
     this.nav.push(TripsPage);
-  }
+  }     
 
   // choose place
   choosePlace(from) {
@@ -73,7 +87,7 @@ export class HomePage {
   }
 
   routeToDevicePage() {
-    this.nav.push(DevicePage);
+    this.nav.push(DevicePage, {userName: this.userName});
   }
 
   selectItem(item){

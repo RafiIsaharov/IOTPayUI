@@ -11,6 +11,10 @@ export class UserDevicesService {
   }
 
 
+  createNewUserWithNoDevices(userName) {
+    this.userDevices.push({userName:userName,deviceId:[100]});
+  }
+
   getUserDevices(userName){
     for (var i = 0; i < this.userDevices.length; i++) {
       if (this.userDevices[i].userName === userName) {
@@ -21,10 +25,10 @@ export class UserDevicesService {
   }
 
   addDeviceToUser(userName, deviceId) {
-   //alert("Adding Device");
+   alert("Adding Device");
    for (var i = 0; i < this.userDevices.length; i++) {
     if (this.userDevices[i].userName === userName) {
-       this.userDevices[i].deviceId.push(deviceId);
+       this.userDevices[i].deviceId.push(parseInt(deviceId));
 
       console.log(this.userDevices);
       }

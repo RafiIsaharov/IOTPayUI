@@ -27,6 +27,8 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { DeviceService } from '../services/device-service';
 import { DevicePage } from '../pages/device/device';
+import { UserService } from '../services/user-service';
+import { UserDevicesService } from '../services/mock-user-devices-service';
 // import services
 // end import services
 // end import services
@@ -86,6 +88,8 @@ import { DevicePage } from '../pages/device/device';
     ActivityService,
     TripService,
     DeviceService,
+    UserService,
+    UserDevicesService,
     WeatherProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
     

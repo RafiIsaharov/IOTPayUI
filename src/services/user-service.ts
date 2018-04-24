@@ -1,13 +1,19 @@
 import { USERS } from './mock-users';
 import {Injectable} from "@angular/core";
+import { UserDevicesService } from './mock-user-devices-service';
 
 @Injectable()
 export class UserService {
   private users: any;
   
 
-  constructor() {
+  constructor(public userDevicesService: UserDevicesService) {
     this.users = USERS;
+  }
+
+  createNewUser (userName) {
+    this.addUser(userName);
+    this.userDevicesService.createNewUserWithNoDevices(userName);
   }
 
 

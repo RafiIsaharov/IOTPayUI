@@ -11,7 +11,15 @@ export class DeviceService {
     this.items = ITEMS;
   }
 
-  getAll() {
+  getAll(deviceIds?: any) {
+
+    if (deviceIds) {
+      let devices : any[] = [];
+        for (let deviceId of deviceIds) {
+          devices.push(this.getItem(deviceId));
+        }
+        return devices;
+    } else 
     return this.items;
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DeviceService } from '../../services/device-service';
+import { UserDevicesService } from '../../services/mock-user-devices-service';
 
 /**
  * Generated class for the DevicePage page.
@@ -21,17 +22,19 @@ export class DevicePage {
     desc: '',
     img: '../assets/img/default'
   }
-  deviceId: string;
+  deviceId: number;
   deviceName: string;
   deviceDescription: string;
   deviceFormGroup: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private deviceService: DeviceService, public alertController : AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private deviceService: DeviceService,
+     public alertController : AlertController,
+     public userDevicesService: UserDevicesService) {
   }
 
   ngOnInit() {
     this.deviceFormGroup = new FormGroup({
-      deviceId: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+      deviceId: new FormControl('',[Validators.required, Validators.pattern('[0-9 ]*')]),
       deviceName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
       deviceDescription: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'),
       Validators.minLength(4), Validators.maxLength(15)]),
@@ -59,7 +62,8 @@ export class DevicePage {
   }
 
   addDevice() {
-    this.deviceService.addDevice(this.getDeviceDetails());
+    //this.deviceService.addDevice(this.getDeviceDetails());
+    this.userDevicesService.addDeviceToUser(this.navParams.get('userName'),this.deviceId);
     this.navCtrl.pop();
   }
 

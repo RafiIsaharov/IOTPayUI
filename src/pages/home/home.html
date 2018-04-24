@@ -41,7 +41,8 @@
   <ion-list-header>
     <button ion-button (click)="routeToDevicePage()">Add device</button>
   </ion-list-header>
-  <button ion-item *ngFor="let item of items" (click)="selectItem(item)" >
+ <!-- <button ion-item *ngFor="let item of items" (click)="selectItem(item)" > -->
+    <button ion-item *ngFor="let item of items" (click)="selectItem(item)" >
       <ion-grid>
           <ion-row>
             <ion-col col-2>
@@ -51,7 +52,8 @@
             </ion-col>
             <ion-col padding-top col-10>
               <h2 ion-text class="no-margin bold">
-                  {{item.name}} 
+                {{item.name}}
+                <!-- {{item.name}}  -->
               </h2>
               <span ion-text color="light">{{ item.desc }}</span>
             </ion-col>

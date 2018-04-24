@@ -3,6 +3,7 @@ import {NavController, AlertController, ToastController, MenuController} from "i
 import {HomePage} from "../home/home";
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 import {RegisterPage} from "../register/register";
+import { UserService } from "../../services/user-service";
 
 @Component({
   selector: 'page-login',
@@ -15,7 +16,13 @@ export class LoginPage implements OnInit {
   userName: String;
   password:String;
   
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+  constructor(public nav: NavController, 
+    public forgotCtrl: AlertController, 
+    public menu: MenuController, 
+    public toastCtrl: ToastController,
+    public userService : UserService ) 
+    
+    {
     this.menu.swipeEnable(false);
   }
   ngOnInit(){
@@ -36,8 +43,13 @@ export class LoginPage implements OnInit {
 
   // login and go to home page
   login() {
-
+    if (this.userService.getUser(this.userName) != null) {
     this.nav.setRoot(HomePage, {userName: this.userName});
+    } else {
+        this.userService.createNewUser(this.userName);
+        this.nav.setRoot(HomePage, {userName: this.userName});
+
+    }
   }
 
   forgotPass() {
