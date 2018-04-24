@@ -12,7 +12,7 @@ export class UserDevicesService {
 
 
   createNewUserWithNoDevices(userName) {
-    this.userDevices.push({userName:userName,deviceId:[100]});
+    this.userDevices.push({userName:userName,deviceId:[]});
   }
 
   getUserDevices(userName){

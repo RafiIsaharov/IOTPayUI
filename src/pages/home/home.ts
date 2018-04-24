@@ -38,7 +38,12 @@ export class HomePage {
       public userService : UserService) {
       let userDevices = userDeviceService.getUserDevices(this.userName);
       //this.items = deviceService.getAll();
+      
+      
       this.items = deviceService.getAll(userDevices);
+      if (this.items != null) {
+        this.items = [];
+      }
       //this.userItems = deviceService.getAll(userDevices);
 
 
