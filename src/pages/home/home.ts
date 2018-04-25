@@ -1,13 +1,13 @@
 import { DeviceService } from '../../services/device-service';
 import {Component} from "@angular/core";
-import {NavController, PopoverController, NavParams,ModalController} from "ionic-angular";
+import {NavController, PopoverController, NavParams,ModalController, AlertController, Platform } from "ionic-angular";
 import {Storage} from '@ionic/storage';
 
 import {NotificationsPage} from "../notifications/notifications";
 import {SettingsPage} from "../settings/settings";
 import {TripsPage} from "../trips/trips";
 import {SearchLocationPage} from "../search-location/search-location";
-import { LoginPage } from "../login/login";
+//import { LoginPage } from "../login/login";
 import { ItemDetailsPage } from "../item-details/item-details";
 import { DevicePage } from '../device/device';
 import { UserDevicesService } from '../../services/mock-user-devices-service';
@@ -35,7 +35,9 @@ export class HomePage {
      public popoverCtrl: PopoverController, private modelCtrl :ModalController,
       public deviceService: DeviceService,
       public userDeviceService: UserDevicesService,
-      public userService: UserService
+      public userService: UserService,
+      private alertCtrl: AlertController, 
+      private platform: Platform
       ) {
       let userDevices = userDeviceService.getUserDevices(this.userName);
       //this.items = deviceService.getAll();
@@ -101,7 +103,16 @@ export class HomePage {
   // this.modelCtrl.create(ItemDetailsPage,{item:item}).present();
 
   }
-
+  showPlatform() {
+    let text = 'I run on: ' + this.platform.platforms();
+    let alert = this.alertCtrl.create({
+      title: 'My Home',
+      subTitle: text,
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  
 }
 
 //
