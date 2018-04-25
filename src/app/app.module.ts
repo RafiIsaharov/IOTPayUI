@@ -29,6 +29,7 @@ import { DeviceService } from '../services/device-service';
 import { DevicePage } from '../pages/device/device';
 import { UserService } from '../services/user-service';
 import { UserDevicesService } from '../services/mock-user-devices-service';
+import { AboutPage } from '../pages/about/about';
 // import services
 // end import services
 // end import services
@@ -50,7 +51,8 @@ import { UserDevicesService } from '../services/mock-user-devices-service';
     TripDetailPage,
     TripsPage,
     ItemDetailsPage,
-    DevicePage
+    DevicePage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { UserDevicesService } from '../services/mock-user-devices-service';
     TripDetailPage,
     TripsPage,
     ItemDetailsPage,
-    DevicePage
+    DevicePage,
+    AboutPage
   ],
   providers: [
     StatusBar,

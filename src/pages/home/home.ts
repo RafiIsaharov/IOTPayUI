@@ -28,14 +28,15 @@ export class HomePage {
 
   items: any;
  // userItems: any;
-  userName: String = this.params.get('userName');
-  
+ //userName: String = this.params.get('userName');
+ userName = this.userService.getCurrentUser();
 
   constructor(private storage: Storage, public nav: NavController, public params: NavParams,
      public popoverCtrl: PopoverController, private modelCtrl :ModalController,
       public deviceService: DeviceService,
       public userDeviceService: UserDevicesService,
-      public userService : UserService) {
+      public userService: UserService
+      ) {
       let userDevices = userDeviceService.getUserDevices(this.userName);
       //this.items = deviceService.getAll();
       
@@ -63,7 +64,7 @@ export class HomePage {
     }).catch((err) => {
       console.log(err)
     });
-    //**********new Addition here to load al ites on page refresh*********
+    //**********new Addition here to load all items on page refresh*********
     this.items = this.deviceService.getAll(this.userDeviceService.getUserDevices(this.userName));
     console.log(this.userName);
     }
