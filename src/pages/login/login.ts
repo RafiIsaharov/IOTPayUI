@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     this.menu.swipeEnable(false);
   }
   ngOnInit(){
-    let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    //let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
     this.signinform = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), 
       Validators.minLength(4), Validators.maxLength(15)]),
