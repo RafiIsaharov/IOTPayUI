@@ -1,8 +1,8 @@
 export let USERS = [
-    {
-       
+    {       
       userName: 'Tomer',
       accountNumber: '',
+      loanOffer: '',
       phone:'',
       email:'',
       avatar:'../assets/img/iot/coffee-machine.png'},
@@ -10,6 +10,7 @@ export let USERS = [
       
       userName: 'Rafi',
       accountNumber: '',
+      loanOffer:'',
       phone:'',
       email:'',
       avatar:'../assets/img/iot/coffee-machine.png'},

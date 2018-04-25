@@ -11,7 +11,7 @@ export class UserService {
     this.users = USERS;
   }
 
-  createNewUser (userName) {
+  createNewUser(userName) {
     this.addUser(userName);
     this.setCurrentUser(userName);
     this.userDevicesService.createNewUserWithNoDevices(userName);
@@ -36,7 +36,6 @@ export class UserService {
   }
 
   addUser(user : any) {
-   //alert("Adding Device");
    this.users.push(user); 
    console.log(this.users);
   }

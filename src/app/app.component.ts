@@ -9,6 +9,7 @@ import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { AboutPage } from "../pages/about/about";
+import { UserService } from "../services/user-service";
 
 export interface MenuItem {
     title: string;
@@ -26,12 +27,14 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   appMenuItems: Array<MenuItem>;
+  userName:String;
 
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public keyboard: Keyboard
+    public keyboard: Keyboard,
+    public userService : UserService
   ) {
     this.initializeApp();
 
@@ -39,6 +42,7 @@ export class MyApp {
       {title: 'Device List', component: HomePage, icon: 'ios-browsers-outline'},
       {title: 'About', component: AboutPage, icon: 'ios-information-circle-outline'}
     ];
+
   }
 
   initializeApp() {
@@ -61,11 +65,20 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+   
     this.nav.setRoot(page.component);
   }
 
   logout() {
     this.nav.setRoot(LoginPage);
   }
+  
+  getUser(){
+    return this.userService.getCurrentUser();
+  }
 
+  editProfile(){
+    this.nav.setRoot(LoginPage);
+  }
+_
 }
