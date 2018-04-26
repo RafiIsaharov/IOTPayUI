@@ -1,15 +1,14 @@
 export let USERS = [
     {       
       userName: 'Tomer',
-      accountNumber: '',
+      accNumber: '',
       loanOffer: '',
       phone:'',
       email:'',
       avatar:'../assets/img/iot/coffee-machine.png'},
-    {
-      
+    { 
       userName: 'Rafi',
-      accountNumber: '',
+      accNumber: '',
       loanOffer:'',
       phone:'',
       email:'',
