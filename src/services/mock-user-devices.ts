@@ -8,7 +8,11 @@ export let USER_DEVICES = [
     {
         userName: 'Rafi',
         deviceId: [789] 
+      }, {
+        userName: 'John',
+        deviceId: [456] 
       }
+
 
       
   ]

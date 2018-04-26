@@ -8,16 +8,12 @@ export let ITEMS = [
   {
     id: 456,
     name: 'Dash button',
-    desc:'Order nespresso capsules',
+    desc:'Order Nespresso capsules',
     img:'../assets/img/iot/iotbutton.png'},
 {
     id: 789,
-    name: 'Simething button',
-    desc:'order bedsadsadasdsaar',
-    img:'../assets/img/iot/alarm-clock.png'},
-    {
-      id: 100,
-      name: 'Default button',
-      desc:'order bedsadsadasdsaar',
-      img:'../assets/img/iot/alarm-clock.png'}
+    name: 'Washing Machine',
+    desc:'Order washing machine capsules',
+    img:'../assets/img/iot/washing-machine.png'},
+    
 ]
