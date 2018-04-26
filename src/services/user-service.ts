@@ -16,7 +16,7 @@ export class UserService {
       accNumber: '324235232',
       loanOffer: user.loanOffer?user.loanOffer:false,
       phone:user.phone? user.phone:"111",
-      email:user.email?user.email:"aaa@gmail.com",
+      email:user.email?user.email:user.username+"@gmail.com",
       finastraId: '1223-2312'
         } 
     this.addUser(newUser);

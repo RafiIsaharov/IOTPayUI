@@ -8,7 +8,7 @@ export let ITEMS = [
   {
     id: 456,
     name: 'Dash button',
-    desc:'order bear',
+    desc:'Order nespresso capsules',
     img:'../assets/img/iot/iotbutton.png'},
 {
     id: 789,
