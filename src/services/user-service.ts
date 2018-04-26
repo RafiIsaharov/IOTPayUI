@@ -13,7 +13,8 @@ export class UserService {
 
   createNewUser(userName) {
     this.addUser(userName);
-    this.setCurrentUser(userName);
+
+    this.setCurrentUser(typeof userName == "string"? userName:userName.userName);
     this.userDevicesService.createNewUserWithNoDevices(userName);
   }
 

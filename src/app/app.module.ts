@@ -30,6 +30,7 @@ import { DevicePage } from '../pages/device/device';
 import { UserService } from '../services/user-service';
 import { UserDevicesService } from '../services/mock-user-devices-service';
 import { AboutPage } from '../pages/about/about';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import services
 // end import services
 // end import services
@@ -56,6 +57,8 @@ import { AboutPage } from '../pages/about/about';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
