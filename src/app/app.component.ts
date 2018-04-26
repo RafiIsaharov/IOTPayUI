@@ -10,6 +10,7 @@ import { LoginPage } from "../pages/login/login";
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { AboutPage } from "../pages/about/about";
 import { UserService } from "../services/user-service";
+import { UserProfilePage } from "../pages/user-profile/user-profile";
 
 export interface MenuItem {
     title: string;
@@ -27,7 +28,7 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   appMenuItems: Array<MenuItem>;
-  userName:String;
+  //userName:String;
 
   constructor(
     public platform: Platform,
@@ -73,12 +74,14 @@ export class MyApp {
     this.nav.setRoot(LoginPage);
   }
   
-  getUser(){
-    return this.userService.getCurrentUser();
+  getUserName(){
+    
+    let user = this.userService.getCurrentUser(); 
+    return (user)?user.userName:"";
   }
 
   editProfile(){
-    this.nav.setRoot(LoginPage);
+    this.nav.push(UserProfilePage);
   }
 _
 }

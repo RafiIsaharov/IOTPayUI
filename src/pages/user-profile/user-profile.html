@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>User Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+   <div text-center>
+    <img id="friend-avatar" src="../assets/img/avatar.png">
+  </div>
+
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light" text-center>Username</ion-item-divider>
+      <ion-item>{{ userData.userName }}</ion-item>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider color="light" text-center>Email</ion-item-divider>
+      <ion-item>{{ userData.email }}</ion-item>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light" text-center>Phone number</ion-item-divider>
+        <ion-item>{{ userData.phone }}</ion-item>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light" text-center>Acount details</ion-item-divider>
+        <ion-item>Account number: {{ userData.accNumber }}</ion-item>
+        <ion-item>Loan offer {{ (userData.loanOffer)? "enabled":"disabled" }}</ion-item>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light" text-center>Finastra Id</ion-item-divider>
+        <ion-item>{{ userData.finastraId }}</ion-item>
+      </ion-item-group>
+  </ion-list>
+  
+</ion-content>

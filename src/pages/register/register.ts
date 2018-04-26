@@ -21,10 +21,10 @@ export class RegisterPage implements OnInit{
 
   ngOnInit(){
     this.signUp = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'), 
+      username: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'), 
       Validators.minLength(4), Validators.maxLength(15)]],      
       accNumber: ['',Validators.required],
-      loanOffer: [''],
+      loanOffer: [false],
       phone:[''] ,
       email:[''] ,
       password:[''],

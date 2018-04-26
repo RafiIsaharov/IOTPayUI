@@ -31,6 +31,7 @@ import { UserService } from '../services/user-service';
 import { UserDevicesService } from '../services/mock-user-devices-service';
 import { AboutPage } from '../pages/about/about';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
 // import services
 // end import services
 // end import services
@@ -53,7 +54,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TripsPage,
     ItemDetailsPage,
     DevicePage,
-    AboutPage
+    AboutPage,
+    UserProfilePage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TripsPage,
     ItemDetailsPage,
     DevicePage,
-    AboutPage
+    AboutPage,
+    UserProfilePage
   ],
   providers: [
     StatusBar,

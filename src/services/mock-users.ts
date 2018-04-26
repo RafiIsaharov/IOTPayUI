@@ -1,16 +1,16 @@
 export let USERS = [
     {       
       userName: 'Tomer',
-      accNumber: '',
-      loanOffer: '',
-      phone:'',
-      email:'',
-      avatar:'../assets/img/iot/coffee-machine.png'},
+      accNumber: '21312342124',
+      loanOffer: false,
+      phone:'+97254393333',
+      email:'Tomer.Abramovich@finastra.com',
+    finastraId:'3452-7854'},
     { 
       userName: 'Rafi',
-      accNumber: '',
-      loanOffer:'',
-      phone:'',
-      email:'',
-      avatar:'../assets/img/iot/coffee-machine.png'},
+      accNumber: '243223523532535',
+      loanOffer:true,
+      phone:'+97254202222',
+      email:'Rafi.Isaharov@finastra.com',
+      finastraId:'6574-2311'},
   ]

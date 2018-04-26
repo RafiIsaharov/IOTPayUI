@@ -33,7 +33,6 @@ export class DeviceService {
   }
 
   addDevice(item : any) {
-   //alert("Adding Device");
    this.items.push(item); 
    console.log(this.items);
   }

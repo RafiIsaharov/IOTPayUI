@@ -77,7 +77,6 @@ export class DevicePage {
       this.navCtrl.pop();
     } else {
       this.deviceDoNotExistAlert();
-      //alert("Device ID doesn't exist")
     }
 
   }

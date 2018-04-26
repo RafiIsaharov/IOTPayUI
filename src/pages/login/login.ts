@@ -11,10 +11,9 @@ import { UserService } from "../../services/user-service";
 })
 export class LoginPage implements OnInit {
 
-  signinform: FormGroup;
-  //userData:{username:"",password:""};
-  userName: String;
-  password:String;
+  signInForm: FormGroup;
+  //userName: String;
+  //password:String;
   
   constructor(public nav: NavController, 
     public forgotCtrl: AlertController, 
@@ -27,7 +26,7 @@ export class LoginPage implements OnInit {
   }
   ngOnInit(){
     //let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    this.signinform = new FormGroup({
+    this.signInForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), 
       Validators.minLength(4), Validators.maxLength(15)]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
@@ -43,11 +42,11 @@ export class LoginPage implements OnInit {
 
   // login and go to home page
   login() {
-    if (this.userService.getUser(this.userName) != null) {
-    this.nav.setRoot(HomePage, {userName: this.userName});
+    if (this.userService.getUser(this.signInForm.get('username').value) != null) {
+    this.nav.setRoot(HomePage);
     } else {
-        this.userService.createNewUser(this.userName);
-        this.nav.setRoot(HomePage, {userName: this.userName});
+        this.userService.createNewUser(this.signInForm.value);
+        this.nav.setRoot(HomePage);
 
     }
   }

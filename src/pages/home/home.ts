@@ -1,5 +1,5 @@
 import { DeviceService } from '../../services/device-service';
-import {Component} from "@angular/core";
+import {Component,OnInit} from "@angular/core";
 import {NavController, PopoverController, NavParams,ModalController, AlertController, Platform } from "ionic-angular";
 import {Storage} from '@ionic/storage';
 
@@ -19,7 +19,7 @@ import { UserService } from '../../services/user-service';
   templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit{
   // search condition
   public search = {
     name: "Rio de Janeiro, Brazil",
@@ -27,9 +27,7 @@ export class HomePage {
   }
 
   items: any;
- // userItems: any;
- //userName: String = this.params.get('userName');
- userName = this.userService.getCurrentUser();
+  userName:String;
 
   constructor(private storage: Storage, public nav: NavController, public params: NavParams,
      public popoverCtrl: PopoverController, private modelCtrl :ModalController,
@@ -52,7 +50,11 @@ export class HomePage {
 
   }
 
+ngOnInit(){
+  console.log("Home ngOnInit" + JSON.stringify(this.userService.getCurrentUser()));
+  this.userName = this.userService.getCurrentUser().userName;
 
+}
 
   ionViewWillEnter() {
     // this.search.pickup = "Rio de Janeiro, Brazil";

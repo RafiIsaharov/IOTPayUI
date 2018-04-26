@@ -11,27 +11,27 @@
     </div>  
 
     <!-- Login form -->
-    <form novalidate class="list-form" [formGroup]="signinform" (ngSubmit)="login()">
+    <form novalidate class="list-form" [formGroup]="signInForm" (ngSubmit)="login()">
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
           Username
         </ion-label>
-        <ion-input    [(ngModel)]="userName" formControlName="username" type="String" [class.error1]="!signinform.controls.username.valid && signinform.controls.username.dirty"></ion-input>
+        <ion-input  formControlName="username" type="String" [class.error1]="!signInForm.controls.username.valid && signInForm.controls.username.dirty"></ion-input>
       </ion-item>
-      <ion-item no-lines *ngIf="( signinform.get('username').hasError('minlength') || signinform.get('username').hasError('maxlength') 
-      ||signinform.get('username').hasError('pattern') ||signinform.get('username').hasError('required') ) 
-      && signinform.get('username').touched">
-        <div class="error danger" *ngIf="signinform.get('username').hasError('required') && signinform.get('username').touched">
+      <ion-item no-lines *ngIf="( signInForm.get('username').hasError('minlength') || signInForm.get('username').hasError('maxlength') 
+      ||signInForm.get('username').hasError('pattern') ||signInForm.get('username').hasError('required') ) 
+      && signInForm.get('username').touched">
+        <div class="error danger" *ngIf="signInForm.get('username').hasError('required') && signInForm.get('username').touched">
           Please input your username
         </div>
-        <div class="error" *ngIf="signinform.get('username').hasError('minlength') && signinform.get('username').touched">
+        <div class="error" *ngIf="signInForm.get('username').hasError('minlength') && signInForm.get('username').touched">
           Minimum 4 characters
         </div>
-        <div class="error" *ngIf="signinform.get('username').hasError('maxlength') && signinform.get('username').touched">
+        <div class="error" *ngIf="signInForm.get('username').hasError('maxlength') && signInForm.get('username').touched">
           Maximum 10 characters
         </div>
-        <div class="error" *ngIf="signinform.get('username').hasError('pattern') && signinform.get('username').touched">
+        <div class="error" *ngIf="signInForm.get('username').hasError('pattern') && signInForm.get('username').touched">
           Just use alphabet character
         </div>
       </ion-item>
@@ -40,16 +40,16 @@
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
           Password
         </ion-label>
-        <ion-input  type="password" [(ngModel)]="password" formControlName="password" [class.error1]="!signinform.controls.password.valid && signinform.controls.password.dirty"></ion-input>
+        <ion-input  type="password" formControlName="password" [class.error1]="!signInForm.controls.password.valid && signInForm.controls.password.dirty"></ion-input>
       </ion-item>
-      <ion-item no-lines *ngIf="( signinform.get('password').hasError('minlength') || signinform.get('password').hasError('maxlength') ||signinform.get('password').hasError('required') ) && signinform.get('password').touched">
-        <div class="error" *ngIf="signinform.get('password').hasError('required') && signinform.get('password').touched">
+      <ion-item no-lines *ngIf="( signInForm.get('password').hasError('minlength') || signInForm.get('password').hasError('maxlength') ||signInForm.get('password').hasError('required') ) && signInForm.get('password').touched">
+        <div class="error" *ngIf="signInForm.get('password').hasError('required') && signInForm.get('password').touched">
           Please input your password
         </div>
-        <div class="error" *ngIf="signinform.get('password').hasError('minlength') && signinform.get('password').touched">
+        <div class="error" *ngIf="signInForm.get('password').hasError('minlength') && signInForm.get('password').touched">
           Minimum 6 characters
         </div>
-        <div class="error" *ngIf="signinform.get('password').hasError('maxlength') && signinform.get('password').touched">
+        <div class="error" *ngIf="signInForm.get('password').hasError('maxlength') && signInForm.get('password').touched">
           Maximum 12 characters
         </div>
       </ion-item>
@@ -76,7 +76,7 @@
     <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p>
 
     <div>
-      <button ion-button icon-start block color="dark" tappable (click)="login()" [disabled]="signinform.invalid">
+      <button ion-button icon-start block color="dark" tappable (click)="login()" [disabled]="signInForm.invalid">
         <ion-icon name="log-in"></ion-icon>
         SIGN IN
       </button>

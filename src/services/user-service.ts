@@ -11,26 +11,33 @@ export class UserService {
     this.users = USERS;
   }
 
-  createNewUser(userName) {
-    this.addUser(userName);
-
-    this.setCurrentUser(typeof userName == "string"? userName:userName.userName);
-    this.userDevicesService.createNewUserWithNoDevices(userName);
+  createNewUser(user) {
+    let newUser = {userName:user.username,
+      accNumber: '324235232',
+      loanOffer: user.loanOffer?user.loanOffer:false,
+      phone:user.phone? user.phone:"111",
+      email:user.email?user.email:"aaa@gmail.com",
+      finastraId: '1223-2312'
+        } 
+    this.addUser(newUser);
+    this.setCurrentUser(newUser);
+    this.userDevicesService.createNewUserWithNoDevices(typeof user == "string"? user:newUser.userName);
   }
 
-
+  //get and set current user.
   getUser(userName){
     for (var i = 0; i < this.users.length; i++) {
       if (this.users[i].userName === userName) {
-        this.setCurrentUser(userName);
+        this.setCurrentUser(this.users[i]);
         return this.users[i];
       }
     }
     return null;
   }
 
-  setCurrentUser (userName) {
-    this.currentUser = userName;
+  setCurrentUser(user) {
+    console.log("setCurrentUser" + JSON.stringify(user));
+    this.currentUser = user;
   }
   getCurrentUser () {
     return this.currentUser;
