@@ -6,13 +6,13 @@ export let USER_DEVICES = [
     },    
     {
         userName: 'Rafi',
-        deviceId: [789] 
+        deviceId: [456] 
       }, {
         userName: 'John',
         deviceId: [456] 
       },
       { 
         userName: 'Alex',
-        deviceId: [789] 
+        deviceId: [456] 
       },
   ]
